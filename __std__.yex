@@ -1,0 +1,19 @@
+let for_each cb arr = 
+	let loop current max array callback myself = 
+		callback(array[c])
+		>> if current == max then 
+			0
+		else 
+			become myself(current+1, max, array, callback, myself)
+
+	in loop(0, #arr-1, arr, cb, loop) 
+let eval code = 
+	let args = ["-c", "echo '" + code + "' | yex"]
+	in let evaluated = system("bash", args)
+	in if #evaluated[1][1] == 0 then 
+		evaluated[1][0]
+	else	
+		"eval: ERROR: " + evaluated[1]
+
+let append item arr = 
+	rev(item :: rev(arr))

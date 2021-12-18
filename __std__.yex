@@ -1,6 +1,6 @@
 let for_each cb arr = 
 	let loop current max array callback myself = 
-		callback(array[c])
+		callback(array[current])
 		>> if current == max then 
 			0
 		else 

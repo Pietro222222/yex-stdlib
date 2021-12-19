@@ -1,3 +1,4 @@
+open "./list_functions.yex"
 let for_each cb arr = 
 	let loop current max array callback myself = 
 		callback(array[current])

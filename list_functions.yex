@@ -1,0 +1,39 @@
+// @Author: Sun「無用」#6331
+
+let sum array =
+    if #array == 1 then
+        array[0]
+    else
+        head(values) + sum(tail(values))
+
+
+let filter array func =
+    if #array == 0 then
+        []
+    else if func(head(array)) then
+        head(array) :: filter(tail(array), func)
+    else
+        become filter(tail(array), func)
+
+
+let all array func =
+    if #array == 0 then
+        true
+    else
+        func(head(array)) == all(tail(array), func)
+
+
+let any array func =
+    if #array == 0 then
+        false
+    else if func(head(array)) then
+        true
+    else
+        become any(tail(array), func)
+
+
+let join array strJoiner =
+    if #array == 1 then
+        str(array[0])
+    else
+        str(head(array)) + strJoiner + join(tail(array), strJoiner)

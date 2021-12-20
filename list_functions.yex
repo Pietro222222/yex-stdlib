@@ -1,13 +1,8 @@
 // @Author: Sun「無用」#6331
 
-let sum array =
-    if #array == 1 then
-        array[0]
-    else
-        head(values) + sum(tail(values))
+let sum = fold(0, fn acc a = acc + a)
 
-
-let filter array func =
+let filter func array =
     if #array == 0 then
         []
     else if func(head(array)) then
@@ -16,24 +11,24 @@ let filter array func =
         become filter(tail(array), func)
 
 
-let all array func =
+let all func array =
     if #array == 0 then
         true
     else
-        func(head(array)) == all(tail(array), func)
+        func(func, head(array)) == all(tail(array))
 
 
-let any array func =
+let any func array =
     if #array == 0 then
         false
     else if func(head(array)) then
         true
     else
-        become any(tail(array), func)
+        become any(func, tail(array))
 
 
-let join array strJoiner =
+let join strJoiner array =
     if #array == 1 then
-        str(array[0])
+        str(array[0]) + strJoiner
     else
-        str(head(array)) + strJoiner + join(tail(array), strJoiner)
+        str(head(array)) + strJoiner + join(strJoiner, tail(array))

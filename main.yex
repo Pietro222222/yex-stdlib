@@ -1,0 +1,5 @@
+open "./__std__.yex"
+
+let _ = 
+    [69, 420]
+    |> for_each(puts)
